@@ -1,7 +1,8 @@
 # Furacao
 
 For the people who like to store backups remotely to keep servers lean and
-compartmental™.
+compartmental™. For those who like to store on the same server - it can do that
+too.
 
 ![Alt demo](http://9bc29d6865d09a60203d-f02a0efa1e5b120d5065a345250db3ff.r15.cf1.rackcdn.com/example.gif)
 
