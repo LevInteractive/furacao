@@ -1,6 +1,7 @@
 # Furacao
 
-We like to store backups remotely to keep servers lean and compartmental™.
+For the people who like to store backups remotely to keep servers lean and
+compartmental™.
 
 ## Installation
 
@@ -46,4 +47,6 @@ change to the configuration file. It will read changes on the fly.
 ```bash
 # Run in the foreground.
 furacao -c path/to/config.json
+
+# Or run as a daemon in the background on system start.
 ```

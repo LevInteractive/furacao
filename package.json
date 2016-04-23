@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "hurricane": "bin/furacao.js"
-  },
   "author": "Lev Interactive <developers@lev-interactive.com>",
+  "bin": {
+    "furacao": "bin/furacao.js"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/LevInteractive/furacao.git"
+  },
   "license": "ISC",
   "dependencies": {
     "archiver": "^1.0.0",
