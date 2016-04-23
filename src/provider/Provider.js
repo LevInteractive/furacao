@@ -2,32 +2,30 @@
 const EventEmitter = require('events').EventEmitter;
 
 class Provider extends EventEmitter {
-  constructor(file, config) {
-    super(config);
-    this.config = config;
+  constructor(file, backupConfig, providerConfig) {
+    super();
     this.file = file;
-    if (!this.config || !this.file) {
-      this.error(new Error('A config and file is required.'));
+    this.backupConfig = backupConfig;
+    this.providerConfig = providerConfig;
+
+    if (!this.backupConfig || !this.file || !this.providerConfig) {
+      this.error(new Error('Missing required arguments for provider.'));
       return this;
     }
+
     this.store();
   }
   store() {
     throw new Error('Store must be implemented in extending class.');
   }
   success() {
-    this.emit('success', this.config);
-    this.emit('done', this.config);
+    this.emit('success');
+    this.emit('done');
   }
   error(err) {
-    this.emit('error', err, this.config);
-    this.emit('done', this.config);
+    this.emit('error', err);
+    this.emit('done');
   }
-}
-
-Provider.rackspace = function(file, config) {
-  const Rackspace = require('./Rackspace');
-  return new Rackspace(file, config);
 }
 
 module.exports = Provider;

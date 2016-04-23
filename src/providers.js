@@ -1,8 +1,8 @@
 const Rackspace = require('./provider/Rackspace');
 
 const factory = {
-  rackspace: function(file, config) {
-    return new Rackspace(file, config);
+  rackspace: function(file, backupConfig, providerConfig) {
+    return new Rackspace(file, backupConfig, providerConfig);
   }
 };
 

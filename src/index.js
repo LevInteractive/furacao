@@ -16,20 +16,14 @@ if (!argv.config) {
 }
 
 const actions = {
-  start: (info) => {
-    log.info(`Started backing up ${info.name} (${info.dir}).`);
+  compress: (data) => {
+    log.info(`Compressing ${data.name} (${data.dir}).`);
   },
-  compress: () => {
-    log.info('Compressing directory in to file.');
-  },
-  store: () => {
-    log.info('Storing file.');
+  store: (data) => {
+    log.info(`Saving the compressed file for ${data.name}.`);
   },
   error: (err, data) => {
-    log.error(
-      `There was an error backing up ${data.config}!`,
-      err.toString()
-    );
+    log.error(`There was an error backing up ${data.config}!`, err.toString());
   },
   success: (data, err) => {
     log.info(`${data.name} backed up successfully.`);
@@ -65,7 +59,6 @@ function run() {
   const config = getConfig();
   const iteratee = function(data, callback) {
     return new Backup(data, config.provider)
-      .on('start', actions.start)
       .on('compress', actions.compress)
       .on('store', actions.store)
       .on('error', actions.error)

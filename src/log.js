@@ -5,7 +5,7 @@ function msgs(args, color) {
   const msgs = [];
   const len = args.length;
   for (let i = 0; i < len; i++) {
-    msgs.push(colors[color](args[i]));
+    msgs.push(colors[color](`-- ${args[i]}`));
   }
   return msgs;
 }

@@ -17,13 +17,12 @@ class Backup extends EventEmitter {
 
     this.providerConfig = providerConfig;
     this.backupConfig = backupConfig;
-    this.emit('start', backupConfig, providerConfig);
     this.filename = `${backupConfig.name}-${moment().format()}.tar.gz`;
     this.tmpFile = path.join(os.tmpdir(), this.filename);
     process.nextTick(() => this.compress());
   }
   compress() {
-    this.emit('compress');
+    this.emit('compress', this.backupConfig);
     const archive = archiver('tar', {
       gzip: true,
       gzipOptions: {
@@ -44,11 +43,15 @@ class Backup extends EventEmitter {
     archive.finalize();
   }
   store() {
-    this.emit('store', this.providerConfig);
+    this.emit('store', this.backupConfig);
     if (!providers[this.providerConfig.name]) {
       return this.error(new Error('The provider you provided does not exist.'));
     }
-    providers[this.providerConfig.name](this.tmpFile, this.providerConfig)
+    providers[this.providerConfig.name](
+      this.tmpFile,
+      this.backupConfig,
+      this.providerConfig
+    )
       .on('success', () => this.success())
       .on('error', err => this.error(err))
     ;
@@ -61,7 +64,7 @@ class Backup extends EventEmitter {
   }
   error(err) {
     fs.unlink(this.tmpFile, () => {
-      this.emit('error', err)
+      this.emit('error', err, this.backupConfig)
       this.emit('done');
     });
   }
