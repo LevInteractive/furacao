@@ -23,7 +23,7 @@ const actions = {
     log.info(`Saving the compressed file for ${data.name}.`);
   },
   error: (err, data) => {
-    log.error(`There was an error backing up ${data.config}!`, err.toString());
+    log.error(`There was an error backing up ${data.name}!`, err.toString());
   },
   success: (data, err) => {
     log.info(`${data.name} backed up successfully.`);

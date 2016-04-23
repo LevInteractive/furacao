@@ -5,13 +5,13 @@ compartmental™.
 
 ![Alt demo](http://9bc29d6865d09a60203d-f02a0efa1e5b120d5065a345250db3ff.r15.cf1.rackcdn.com/example.gif)
 
-## Installation
+# Installation
 
 ```bash
 npm install -g furacao
 ```
 
-## Options
+# Options
 
 * `--config` (`-c`): Required. The configuration file. Can be relative or absolute.
 * `--onetime`: This will ignore the frequency property in the configuration file and the script will exit upon backing up. Suitable for using with a third-party program like cron to manage the schedule.
@@ -20,32 +20,25 @@ The end result will be an organized directory structure:
 
 ```
 <backup-name>
-|  <backup-name>-<year>-<month>-<day>T<hour>:<minute>:<second>+00:00.tar.gz
-|  <backup-name>-<year>-<month>-<day>T<hour>:<minute>:<second>+00:00.tar.gz
-|  <backup-name>-<year>-<month>-<day>T<hour>:<minute>:<second>+00:00.tar.gz
+|  <backup-name>-<year>-<month>-<day>--<hour>-<minute>-<second>-<period>.tar.gz
+|  <backup-name>-<year>-<month>-<day>--<hour>-<minute>-<second>-<period>.tar.gz
+|  <backup-name>-<year>-<month>-<day>--<hour>-<minute>-<second>-<period>.tar.gz
 |  ...
 <backup-name>
 |  ...
 ```
 
-## Setup
+# Setup
 
 It's a two step process.
 
-#### Step 1: Create a configuration file.
-
-At the moment, the only provider is for Rackspace Cloud Files. The Rackspace
-provider will organize backups in neatly organized folders based on the backup's
-`name`.
+### Step 1: Create a configuration file.
 
 ```json
 {
   "frequency": 3600000,
   "provider": {
-    "name": "rackspace",
-    "container": "<container-name>",
-    "apikey": "<api-key>",
-    "username": "<username>"
+    "... SEE BELOW FOR PROVIDER INFO ..."
   },
   "backups": [
     {
@@ -62,7 +55,29 @@ provider will organize backups in neatly organized folders based on the backup's
 }
 ```
 
-#### Step 2: Run furacao
+##### Providers
+
+###### Filesystem
+
+```json
+"provider": {
+  "name": "filesystem",
+  "destination": "<folder-name>"
+}
+```
+
+###### Rackspace Cloud Files
+
+```json
+"provider": {
+  "name": "rackspace",
+  "container": "<container-name>",
+  "apikey": "<api-key>",
+  "username": "<username>"
+}
+```
+
+### Step 2: Run furacao
 
 Start furacao.
 

@@ -5,9 +5,6 @@ const path = require('path');
 const Provider = require('./Provider');
 
 class Rackspace extends Provider {
-  constructor(file, backupConfig, providerConfig) {
-    super(file, backupConfig, providerConfig);
-  }
   client() {
     return pkgcloud.storage.createClient({
       provider: 'rackspace',

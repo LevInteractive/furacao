@@ -10,14 +10,14 @@ const providers = require('./providers');
 class Backup extends EventEmitter {
   constructor(backupConfig, providerConfig) {
     super();
-
     if (!backupConfig || !providerConfig) {
       throw new Error('Both a backup and provider config object is required.');
     }
 
+    const fmt = 'YYYY-MM-DD--h-mm-s-a';
     this.providerConfig = providerConfig;
     this.backupConfig = backupConfig;
-    this.filename = `${backupConfig.name}-${moment().format()}.tar.gz`;
+    this.filename = `${backupConfig.name}-${moment().format(fmt)}.tar.gz`;
     this.tmpFile = path.join(os.tmpdir(), this.filename);
     process.nextTick(() => this.compress());
   }
