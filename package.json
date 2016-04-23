@@ -2,7 +2,7 @@
   "name": "furacao",
   "version": "1.0.3",
   "description": "A lighweight filesystem backup manager written in node.js which is focused on but not limited to cloud-based storage containers..",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +10,12 @@
   "bin": {
     "furacao": "bin/furacao.js"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/LevInteractive/furacao.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LevInteractive/furacao.git"
+  },
+  "engines": {
+    "node" : ">=4.0.0"
   },
   "license": "ISC",
   "dependencies": {

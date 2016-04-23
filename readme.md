@@ -3,6 +3,8 @@
 For the people who like to store backups remotely to keep servers lean and
 compartmental™.
 
+[[http://9bc29d6865d09a60203d-f02a0efa1e5b120d5065a345250db3ff.r15.cf1.rackcdn.com/example.gif]]
+
 ## Installation
 
 ```bash
