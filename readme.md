@@ -64,6 +64,13 @@ furacao -c path/to/config.json --onetime
 You'll want to run this as a daemon on the OS so it's always in the background
 and started on boot.
 
+Here is an example of how a cronjob could look if you want to let cron back your
+files up every day at midnight.
+
+```bash
+00 00 * * * furacao -c /home/dev/furacao.json --onetime
+```
+
 ## Future
 
 * Add more providers! AWS's, SFTP, local filesystem, ect...
