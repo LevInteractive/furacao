@@ -52,7 +52,12 @@ function reschedule(err) {
   if (err) {
     log.warn('There were error(s) during backup.');
   }
-  setTimeout(run, config.frequency);
+
+  if (!argv.onetime && config.frequency) {
+    setTimeout(run, config.frequency);
+  } else {
+    process.exit(0);
+  }
 };
 
 function run() {

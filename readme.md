@@ -9,6 +9,11 @@ compartmental™.
 npm install -g furacao
 ```
 
+## Options
+
+* `--config` (`-c`): Required. The configuration file. Can be relative or absolute.
+* `--onetime`: This will ignore the frequency property in the configuration file and the script will exit upon backing up. Suitable for using with a third-party program like cron to manage the schedule.
+
 ## Setup
 
 It's a two step process.
@@ -50,6 +55,10 @@ change to the configuration file. It will read changes on the fly.
 
 ```bash
 furacao -c path/to/config.json
+
+# You can also make it exit after calling using the --onetime flag. This will
+# ignore the frequency property in the configuration file.
+furacao -c path/to/config.json --onetime
 ```
 
 You'll want to run this as a daemon on the OS so it's always in the background
