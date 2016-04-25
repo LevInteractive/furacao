@@ -93,7 +93,7 @@ It's a two step process.
 
 ### Step 2: Run furacao
 
-Start furacao.
+You have many options. See below for some examples:
 
 ```bash
 # Run in the foreground.
