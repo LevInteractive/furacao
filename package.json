@@ -3,10 +3,10 @@
   "version": "1.0.5",
   "description": "A lighweight filesystem backup manager written in node.js which is focused on but not limited to cloud-based storage containers.",
   "main": "src/index.js",
+  "author": "Lev Interactive <developers@lev-interactive.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lev Interactive <developers@lev-interactive.com>",
   "bin": {
     "furacao": "bin/furacao.js"
   },
@@ -26,5 +26,14 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.13.0",
     "pkgcloud": "^1.3.0"
-  }
+  },
+  "keywords": [
+    "backup",
+    "s3",
+    "rackspace",
+    "filesystem",
+    "cloud storage",
+    "linux",
+    "continuous"
+  ]
 }
