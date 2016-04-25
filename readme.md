@@ -67,6 +67,18 @@ It's a two step process.
 }
 ```
 
+###### Amazon S3 Storage
+
+```json
+"provider": {
+  "name": "s3",
+  "container": "<container-name>",
+  "secretkey": "<secret-key>",
+  "accesskey": "<access-key-id>",
+  "region": "<region>"
+}
+```
+
 ###### Rackspace Cloud Files
 
 ```json
@@ -74,7 +86,8 @@ It's a two step process.
   "name": "rackspace",
   "container": "<container-name>",
   "apikey": "<api-key>",
-  "username": "<username>"
+  "username": "<username>",
+  "region": "<region>"
 }
 ```
 
