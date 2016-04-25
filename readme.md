@@ -99,12 +99,16 @@ Start furacao.
 # Run in the foreground.
 furacao -c path/to/config.json
 
+# Run in the background.
+nohup furacao -c path/to/config.json &
+
 # You can also make it exit after calling using the --onetime flag. This will
 # ignore the frequency property in the configuration file.
 furacao -c path/to/config.json --onetime
 
 # Here is an example of how a cronjob could look if you want to let cron back your
 # files up every day at midnight.
+# *Note* make sure you furacao is accessible to cron user.
 00 00 * * * furacao -c /home/dev/furacao.json --onetime
 ```
 
